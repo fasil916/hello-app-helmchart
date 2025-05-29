@@ -4,7 +4,7 @@ FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 
 # Copy the prebuilt JAR from your pipeline workspace into the container
-COPY target/hello-java-1.0.0.jar app.jar
+COPY target/*.jar app.jar
 
 # Document the port the app listens on (e.g., 8080)
 EXPOSE 8080
