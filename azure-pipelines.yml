@@ -26,9 +26,19 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'docker-connection'
+    repository: 'devazuredevops-demo'
     command: 'build'
     Dockerfile: '**/Dockerfile'
 - task: Bash@3
   inputs:
     targetType: 'inline'
     script: 'docker image'
+- task: ECRPushImage@1
+  inputs:
+    awsCredentials: 'aws-azuedevops'
+    regionName: 'us-east-1'
+    imageSource: 'imagename'
+    sourceImageName: 'devazuredevops-demo'
+    sourceImageTag: '$(Build.BuildId)'
+    repositoryName: 'devazuredevops-demo'
+    pushTag: '$(Build.BuildId)'
