@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: your-docker-repo/hello-java
+  repository: 311141542585.dkr.ecr.us-east-1.amazonaws.com/devazuredevops-demo:270
   tag: "latest"
   pullPolicy: IfNotPresent
 
