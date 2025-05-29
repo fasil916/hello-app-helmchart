@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  name: default 
 
 steps:
 - script: echo Hello, world!
@@ -18,3 +18,7 @@ steps:
     containerRegistry: 'docker-connection'
     command: 'build'
     Dockerfile: '**/Dockerfile'
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: 'docker image'
